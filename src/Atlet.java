@@ -8,7 +8,7 @@ public class Atlet {
     float scor_final;
 
 
-//********************************************************************** */
+/* ********************************************************************* */
 
     Atlet(String nume,String prenume, String[] proba){
         //Stocare variabilelor din parametru
@@ -51,7 +51,7 @@ public class Atlet {
         this.scor=scor;
     }
 
-//********************************************************************** */
+/* ********************************************************************* */
     private void init_data(){
         nr_probe=proba.length;
         this.scor=new int[nr_probe];
@@ -66,14 +66,3 @@ public class Atlet {
     }
     
 }
-/**
- Atlet
--nume
--prenume
--lista probe
--scor
--scor final
- *
- modificare scor
- modificare probe
-*/
