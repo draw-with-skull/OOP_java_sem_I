@@ -132,13 +132,3 @@ public class Olimpiada {
     }
 }
 
-
-/*
-Olimpiada
--adauga participant
--modificare probe
--modificare scor
--afisare diverse(dupa gust)
-
-
-*/
