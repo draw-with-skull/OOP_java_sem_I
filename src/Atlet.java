@@ -1,3 +1,4 @@
+
 public class Atlet {
     //variablie interne
     String nume;
@@ -19,19 +20,19 @@ public class Atlet {
     }
 
     public void afisare_nume(){
-        System.out.print("nume:"+this.nume);
-        System.out.print("prenume:"+this.prenume);
+        System.out.print("\nnume:"+this.nume);
+        System.out.print("\nprenume:"+this.prenume);
     }
     
     public void afisare_scor(){
         for(int i=0;i<nr_probe;i++){
-            System.out.print(proba[i]+":"+scor[i]);
+            System.out.print("\n"+proba[i]+":"+scor[i]);
         }
     }
 
     public void afisare_scor_final(){
         calculare_scor_final();
-        System.out.print("scor final:"+this.scor_final);
+        System.out.print("\nscor final:"+this.scor_final);
     }
 
     public void afisare_informatii(){
@@ -49,6 +50,7 @@ public class Atlet {
     public void modificare_scor(int[] scor){
         this.scor=null;
         this.scor=scor;
+        
     }
 
 /* ********************************************************************* */

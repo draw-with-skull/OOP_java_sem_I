@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Olimpiada {
     Atlet[] atlet;
-    int nr_atleti,meniu,ultimul_participant=0;
+    int nr_atleti,meniu=-1,ultimul_participant=0;
     Scanner input = new Scanner(System.in);
 
     //public
@@ -16,8 +16,12 @@ public class Olimpiada {
     }
 
     public void run(){
+        while(meniu!=0){
         afisare_meniu();
+        System.out.print("\nOptiune:");
+        meniu = input.nextInt();
         optiune();
+        }
     }
     //private
     private void afisare_meniu(){
@@ -32,9 +36,6 @@ public class Olimpiada {
     }
     
     private void optiune(){
-        System.out.print("\nOptiune:");
-        meniu = input.nextInt();
-
         switch(meniu){
             case 0:{/*acest caz este gol deoarece in cazul in care se introduce 0 sa nu tipe prog */}break;
             case 1:{optiunea_1();}break;
@@ -46,7 +47,6 @@ public class Olimpiada {
             case 7:{optiunea_7();}break;
             default:{System.out.print("Aceasta optiune nu exista");}break;
         }
-        
     }
 
     private void optiunea_1(){
@@ -55,18 +55,30 @@ public class Olimpiada {
         nume=input.next();
         System.out.println("Preume:");
         prenume=input.next();
-        atlet[ultimul_participant] = new Atlet(nume,prenume,citire_probe());
 
+        atlet[ultimul_participant] = new Atlet(nume,prenume,citire_probe());
         ultimul_participant++;
     }
     
     private void optiunea_2(){
+        int nr_participant;
+        do{
+            System.out.println("\nNumarul participantului:");
+            nr_participant=input.nextInt();
+        }while(nr_participant>nr_atleti);
 
+        atlet[nr_participant-1].modificare_probe(citire_probe());
     }
     
     private void optiunea_3(){
-
+        int nr_participant;
+        do{
+            System.out.println("\nNumarul participantului:");
+            nr_participant=input.nextInt();
+        }while(nr_participant>nr_atleti);
+        atlet[nr_participant-1].modificare_scor(citire_scor());
     }
+    
     
     private void optiunea_4(){
         for(int i=0;i<ultimul_participant;i++)
@@ -74,15 +86,26 @@ public class Olimpiada {
     }
     
     private void optiunea_5(){
-
+        for(int i=0;i<ultimul_participant;i++){
+            atlet[i].afisare_scor();
+        }
     }
     
     private void optiunea_6(){
+        int nr_participant;
+        System.out.println("\n Numarul participantului:");
+        nr_participant=input.nextInt();
 
+        while(nr_participant>nr_atleti){
+            System.out.println("\n Numarul participantului:");
+            nr_participant=input.nextInt();
+        }
+        atlet[nr_participant-1].afisare_scor_final();
     }
     
     private void optiunea_7(){
-
+        for(int i=0;i<ultimul_participant;i++)
+            atlet[i].afisare_informatii();
     }
 
     private String[] citire_probe(){
@@ -95,6 +118,17 @@ public class Olimpiada {
             proba[i]=input.next();
         }
         return proba;
+    }
+    private int[] citire_scor(){
+        int nr_probe;
+        int[] scor;
+        System.out.println("Numarul de probe:");
+        nr_probe=input.nextInt();
+        scor = new int[nr_probe];
+        for(int i=0;i<nr_probe;i++){
+            scor[i]=input.nextInt();
+        }
+        return scor;
     }
 }
 
